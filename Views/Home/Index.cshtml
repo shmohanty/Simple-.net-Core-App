@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CCMSample.Models.BookData>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @*<label>Book</label>
+        <input type="text" id="bookName"/>
+        <br />
+        <label>Date</label>
+        <input type="date" id="bookDate" />
+        <br/>
+        <input type="submit" value="Add"/>*@
+
+    <table class="table">
+        <tr>
+            <th>
+                Book
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Author
+            </th>
+        </tr>
+        @foreach (var book in Model)
+        {
+
+        <tr>
+            <td>
+                @book.BookName
+            </td>
+            <td>
+                @book.BookDate.Date.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @book.UserName
+            </td>
+        </tr>
+
+        }
+    </table>
+</div>
+
+@*<fieldset>
+    @using (Html.BeginForm("Create", "Home"))
+    {
+
+        <p>
+            @Html.LabelFor(x => x.BookName)
+            @Html.TextBoxFor(x => x.BookName)
+        </p>
+
+        <p>
+            @Html.LabelFor(x => x.BookDate)
+            @Html.EditorFor(x => x.BookDate)
+        </p>
+
+        <button type="submit">Add Book</button>
+        @Html.ActionLink("Create", "Create", "Home")
+
+    }
+</fieldset>*@
